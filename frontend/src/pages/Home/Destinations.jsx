@@ -8,38 +8,46 @@ export default function Destinations() {
 
   return (
     <section className={styles.destinations}>
-      {/* Intro Section */}
-      <div className={styles.intro}>
-        <h2>Discover Luxury & Legacy in Every Journey</h2>
-        <p>
-          Grand Line Safaris crafts intimate family and transformational safaris 
-          across East Africa. Immerse yourself in unparalleled wildlife, culture, 
-          and luxury accommodations.
-        </p>
-      </div>
+      <div className={styles.container}>
+        {/* Intro */}
+        <div className={styles.intro}>
+          <span className={styles.kicker}>Our Destinations</span>
+          <h2>Journeys Across Africa’s Most Remarkable Landscapes</h2>
+          <p>
+            From sweeping savannahs to pristine coastlines, each destination is
+            curated for intimacy, beauty, and unforgettable storytelling.
+          </p>
+        </div>
 
-      {/* Featured Countries */}
-      <div className={styles.cardsContainer}>
-        {featuredCountries.map((country) => (
-          <div key={country.id} className={styles.card}>
-            <div
-              className={styles.cardImage}
-              style={{
-                backgroundImage: `url(${getImageUrl(country.heroImage)})`,
-              }}
-            ></div>
-            <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>{country.name}</h3>
-              <p className={styles.cardDescription}>{country.description}</p>
-              <Link
-                to={`/destinations/${country.id}`}
-                className={styles.cardButton}
+        <div className={styles.divider} />
+
+        {/* Featured Countries */}
+        <div className={styles.cardsContainer}>
+          {featuredCountries.map((country) => (
+            <Link
+              key={country.id}
+              to={`/destinations/${country.id}`}
+              className={styles.card}
+            >
+              <div
+                className={styles.cardImage}
+                style={{
+                  backgroundImage: `url(${getImageUrl(country.heroImage)})`,
+                }}
               >
-                Explore {country.name}
-              </Link>
-            </div>
-          </div>
-        ))}
+                <div className={styles.imageOverlay} />
+                <div className={styles.imageContent}>
+                  <h3>{country.name}</h3>
+                  <span className={styles.explore}>Explore</span>
+                </div>
+              </div>
+
+              <div className={styles.cardContent}>
+                <p>{country.description}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );
