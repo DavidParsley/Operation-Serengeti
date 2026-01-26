@@ -4,6 +4,7 @@ import WhyUs from "./WhyUs";
 import GuestBook from "./GuestBook";
 import GallerySection from "./GallerySection";
 import Foundation from "./Foundation";
+import Villas from "./Villas";
 import Experiences from "./Experiences";
 import CTASection from "./CTASection";
 
@@ -30,8 +31,12 @@ export default function () {
         <GallerySection />
       </section>
 
-       <section>
+      <section>
         <Foundation />
+      </section>
+
+      <section>
+        <Villas />
       </section>
 
       {/* <section>
