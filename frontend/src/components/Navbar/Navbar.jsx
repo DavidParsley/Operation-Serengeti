@@ -86,36 +86,47 @@ export default function Navbar() {
         </div>
 
         {/* Right: Contact & CTA */}
-        <div className="hidden md:flex items-center space-x-6">
-          <div className="flex items-center space-x-2">
-            <img
-              src={getImageUrl("Navbar/phone.png")}
-              className="h-4 w-auto"
-              alt="Phone icon"
-            />
+        <div className="hidden md:flex items-center space-x-8">
+          {/* Phone */}
+          <div className="flex items-center gap-3 group cursor-pointer">
+            <span className="w-8 h-8 rounded-full bg-[#d2a679]/10 flex items-center justify-center transition group-hover:bg-[#d2a679]/20">
+              <img
+                src={getImageUrl("Navbar/phone.png")}
+                className="h-4 w-auto"
+                alt="Phone icon"
+              />
+            </span>
             <a
               href="tel:+254701020202"
               className={classNames(
-                "text-inherit no-underline transition-colors duration-100",
+                "relative text-sm font-medium tracking-wide transition-colors duration-300 after:absolute after:left-0 after:-bottom-[2px] after:h-[1px] after:w-0 after:bg-[#d2a679] after:transition-all after:duration-500 group-hover:after:w-full",
                 isSolid ? "text-[#2d1b00]" : "text-white",
               )}
             >
               +254 701 020 202
             </a>
           </div>
+
+          {/* Contact CTA */}
           <Link
             to="/contact"
             className={classNames(
-              "flex items-center gap-2 font-medium hover:underline tracking-wider transition",
-              isSolid ? "text-[#d2a679]" : "text-white",
+              "group flex items-center gap-3 px-4 py-2 rounded-full border transition-all duration-300 tracking-wide font-semibold text-sm",
+              isSolid
+                ? "border-[#d2a679] text-[#2d1b00] hover:bg-[#d2a679]/10"
+                : "border-white/60 text-white hover:bg-white/10",
             )}
           >
-            <img
-              src={getImageUrl("Navbar/email.png")}
-              className="h-4 w-auto"
-              alt="Email icon"
-            />
-            <span>Contact Us</span>
+            <span className="w-8 h-8 rounded-full bg-[#d2a679]/15 flex items-center justify-center transition group-hover:bg-[#d2a679]/30">
+              <img
+                src={getImageUrl("Navbar/email.png")}
+                className="h-4 w-auto"
+                alt="Email icon"
+              />
+            </span>
+            <span className="relative after:absolute after:left-0 after:-bottom-[2px] after:h-[1px] after:w-0 after:bg-[#d2a679] after:transition-all after:duration-500 group-hover:after:w-full">
+              Contact Concierge
+            </span>
           </Link>
         </div>
 
