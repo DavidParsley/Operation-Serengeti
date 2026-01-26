@@ -5,7 +5,7 @@ import GuestBook from "./GuestBook";
 import GallerySection from "./GallerySection";
 import Foundation from "./Foundation";
 import Villas from "./Villas";
-import Experiences from "./Experiences";
+import BlogSection from "./BlogSection";
 import CTASection from "./CTASection";
 
 export default function () {
@@ -39,9 +39,9 @@ export default function () {
         <Villas />
       </section>
 
-      {/* <section>
-        <Experiences />
-      </section> */}
+      <section>
+        <BlogSection />
+      </section>
 
       <section>
         <CTASection />

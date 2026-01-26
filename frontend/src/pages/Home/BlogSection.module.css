@@ -1,0 +1,147 @@
+@import "../../vars.css";
+
+.blogSection {
+  background: var(--color-bg);
+ padding-top: 1.5rem;
+  padding-bottom: 5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ---------- Intro ---------- */
+
+.intro {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.kicker {
+  display: inline-block;
+  font-family: var(--font-sans);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.text {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-secondary-text);
+}
+
+/* ---------- Blog Grid ---------- */
+
+.blogGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+/* Divider */
+
+.divider {
+  width: 90px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-primary),
+    transparent
+  );
+  margin: 2.5rem auto 3.5rem;
+  opacity: 0.7;
+}
+
+/* ---------- Blog Card ---------- */
+
+.blogCard {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+.blogCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.blogCard:hover .image {
+  transform: scale(1.05);
+}
+
+.blogTitle {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  margin: 1rem;
+  color: var(--color-secondary);
+}
+
+.blogExcerpt {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  margin: 0 1rem 1rem 1rem;
+  color: var(--color-secondary-text);
+}
+
+.button {
+  margin: 0 1rem 1.2rem 1rem;
+  background: transparent;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-secondary);
+  padding: 0.5rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.button:hover {
+  background: var(--color-primary);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(191, 163, 122, 0.35);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .blogGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
