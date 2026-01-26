@@ -371,7 +371,9 @@ export default function Navbar() {
       <nav
         className={classNames(
           "hidden md:block transition-all duration-500 relative",
-          isSolid ? "bg-white/95 backdrop-blur-sm shadow-md" : "bg-transparent",
+          isSolid
+            ? "bg-white/90 backdrop-blur-md shadow-[0_6px_24px_rgba(0,0,0,0.06)]"
+            : "bg-transparent",
         )}
       >
         <div className="max-w-screen-xl mx-auto px-16 lg:px-28">
@@ -379,7 +381,8 @@ export default function Navbar() {
             className="flex justify-between items-center"
             style={{ height: "64px" }}
           >
-            <div className="flex items-center space-x-6 relative">
+            <div className="flex items-center space-x-8 relative">
+              {/* Nav Links */}
               {navItems.map((item) =>
                 item.type === "dropdown" ? (
                   <div
@@ -392,23 +395,24 @@ export default function Navbar() {
                   >
                     <button
                       className={classNames(
-                        "px-2 py-1 text-base font-medium tracking-wider uppercase flex items-center gap-1 transition-colors duration-300",
-                        isSolid
-                          ? "text-[#2d1b00] hover:text-[#d2a679]"
-                          : "text-white hover:text-[#d2a679]",
+                        "group relative px-1 py-1 text-[0.82rem] font-semibold tracking-[0.22em] uppercase flex items-center gap-1 transition-all duration-300",
+                        isSolid ? "text-[#2d1b00]" : "text-white",
                       )}
                     >
-                      {item.name}
-                      <span className="text-xs transform translate-y-[1px]">
+                      <span className="relative after:absolute after:left-0 after:-bottom-[3px] after:h-[1px] after:w-0 after:bg-[#d2a679] after:transition-all after:duration-500 group-hover:after:w-full">
+                        {item.name}
+                      </span>
+                      <span className="text-[0.6rem] translate-y-[1px] opacity-70 group-hover:opacity-100 transition">
                         ▼
                       </span>
                     </button>
+
                     <div
                       className={classNames(
                         "absolute top-full left-0 transition-all duration-300",
                         activeDropdown === item.name.toLowerCase()
-                          ? "opacity-100 visible"
-                          : "opacity-0 invisible",
+                          ? "opacity-100 visible translate-y-0"
+                          : "opacity-0 invisible translate-y-2",
                       )}
                       onMouseEnter={() =>
                         handleDropdownEnter(item.name.toLowerCase())
@@ -426,27 +430,29 @@ export default function Navbar() {
                     key={item.name}
                     to={item.to}
                     className={classNames(
-                      "px-2 py-1 text-base font-medium tracking-wider uppercase transition-colors duration-300",
-                      isSolid
-                        ? "text-[#2d1b00] hover:text-[#d2a679]"
-                        : "text-white hover:text-[#d2a679]",
+                      "group relative px-1 py-1 text-[0.82rem] font-semibold tracking-[0.22em] uppercase transition-all duration-300",
+                      isSolid ? "text-[#2d1b00]" : "text-white",
                     )}
                   >
-                    {item.name}
+                    <span className="relative after:absolute after:left-0 after:-bottom-[3px] after:h-[1px] after:w-0 after:bg-[#d2a679] after:transition-all after:duration-500 group-hover:after:w-full">
+                      {item.name}
+                    </span>
                   </Link>
                 ),
               )}
 
               {/* CTA Buttons */}
-              <div className="flex space-x-3 ml-4">
-                <button className="bg-gradient-to-r from-[#d2a679] to-[#b08b57] text-[#2d1b00] px-4 py-1.5 rounded-md text-sm font-semibold tracking-wide hover:opacity-95 transition transform hover:scale-105 shadow-sm">
+              <div className="flex items-center space-x-4 ml-6">
+                <button className="relative overflow-hidden rounded-full bg-gradient-to-r from-[#d2a679] to-[#b08b57] px-5 py-2 text-[0.8rem] font-semibold tracking-wide text-[#2d1b00] shadow-[0_6px_18px_rgba(210,166,121,0.35)] transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_10px_28px_rgba(210,166,121,0.45)]">
                   Plan Your Journey
                 </button>
+
                 <button
                   className={classNames(
-                    "border border-[#d2a679] px-4 py-1.5 rounded-md text-sm font-semibold tracking-wide transition transform hover:scale-105 shadow-sm",
-                    isSolid ? "text-[#2d1b00]" : "text-white",
-                    "hover:bg-[#d2a679] hover:text-[#2d1b00]",
+                    "relative rounded-full border px-5 py-2 text-[0.8rem] font-semibold tracking-wide transition-all duration-300 hover:scale-[1.04]",
+                    isSolid
+                      ? "border-[#d2a679] text-[#2d1b00] hover:bg-[#d2a679]/10"
+                      : "border-white/70 text-white hover:bg-white/10",
                   )}
                 >
                   Request Brochure
