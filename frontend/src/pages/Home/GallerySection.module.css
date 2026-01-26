@@ -1,0 +1,129 @@
+@import "../../vars.css";
+
+.gallerySection {
+  background: linear-gradient(to left, var(--color-bg), #fffdf9);
+  padding: 5rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* ---------- Content ---------- */
+
+.content {
+  max-width: 480px;
+}
+
+.kicker {
+  display: inline-block;
+  font-family: var(--font-sans);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  line-height: 1.2;
+  color: var(--color-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.text {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-secondary-text);
+  margin-bottom: 2.2rem;
+}
+
+/* ---------- Button ---------- */
+
+.button {
+  background: transparent;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-secondary);
+  padding: 0.75rem 2.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.button:hover {
+  background: var(--color-primary);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(191, 163, 122, 0.35);
+}
+
+/* ---------- Video ---------- */
+
+.videoWrapper {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18);
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* ---------- Play Button ---------- */
+
+.playButton {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.2rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2px);
+  transition: opacity var(--transition-fast);
+}
+
+.videoWrapper:hover .playButton {
+  opacity: 0.85;
+}
+
+/* Hide play button once video is playing */
+.videoWrapper:has(video[controls]) .playButton {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .heading {
+    font-size: 2.2rem;
+  }
+}

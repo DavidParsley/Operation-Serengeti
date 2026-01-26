@@ -2,6 +2,7 @@ import Hero from "./Hero";
 import Destinations from "./Destinations";
 import WhyUs from "./WhyUs";
 import GuestBook from "./GuestBook";
+import GallerySection from "./GallerySection";
 import Experiences from "./Experiences";
 import CTASection from "./CTASection";
 
@@ -25,8 +26,12 @@ export default function () {
       </section>
 
       <section>
-        <Experiences />
+        <GallerySection />
       </section>
+
+      {/* <section>
+        <Experiences />
+      </section> */}
 
       <section>
         <CTASection />
