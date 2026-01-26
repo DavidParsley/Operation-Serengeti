@@ -1,28 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./BlogSection.module.css";
 import { getImageUrl } from "../../utils";
 
 export default function BlogSection() {
-  const blogs = [
+  const [blogs, setBlogs] = useState([
+    // Default dummy data for now
     {
       title: "Chasing Sunsets in the Serengeti",
       excerpt:
         "Discover the golden hues of Africa’s most iconic savannahs and the unforgettable moments they offer.",
-      image: "Home/BlogSection/sunsetsavanna.avif",
+      image: getImageUrl("Home/BlogSection/sunsetsavanna.avif"),
+      url: "#",
     },
     {
       title: "The Maasai Mara: Beyond the Big Five",
       excerpt:
         "Explore the hidden stories, culture, and landscapes that make the Maasai Mara a once-in-a-lifetime experience.",
-      image: "Home/BlogSection/hotairballon.avif",
+      image: getImageUrl("Home/BlogSection/massai.avif"),
+      url: "#",
     },
     {
       title: "Luxury Safari Lodges That Redefine Comfort",
       excerpt:
         "From infinity pools to candlelit dinners under the stars, these lodges offer a safari experience like no other.",
-      image: "Home/BlogSection/rivercruise.avif",
+      image: getImageUrl("Home/BlogSection/rivercruise.avif"),
+      url: "#",
     },
-  ];
+  ]);
+
+  // FUTURE API call
+  useEffect(() => {
+    /*
+    fetch("https://your-api.com/blogs")
+      .then((res) => res.json())
+      .then((data) => setBlogs(data))
+      .catch((err) => console.error(err));
+    */
+  }, []);
 
   return (
     <section className={styles.blogSection}>
@@ -39,22 +53,22 @@ export default function BlogSection() {
           </p>
         </div>
 
-         <div className={styles.divider} />
-
         {/* Blog Cards */}
         <div className={styles.blogGrid}>
           {blogs.map((blog, idx) => (
             <div key={idx} className={styles.blogCard}>
               <div className={styles.imageWrapper}>
                 <img
-                  src={getImageUrl(blog.image)}
+                  src={blog.image}
                   alt={blog.title}
                   className={styles.image}
                 />
               </div>
               <h3 className={styles.blogTitle}>{blog.title}</h3>
               <p className={styles.blogExcerpt}>{blog.excerpt}</p>
-              <button className={styles.button}>Read More</button>
+              <a href={blog.url} className={styles.button}>
+                Read More
+              </a>
             </div>
           ))}
         </div>

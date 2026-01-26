@@ -7,6 +7,7 @@ import Foundation from "./Foundation";
 import Villas from "./Villas";
 import BlogSection from "./BlogSection";
 import CTASection from "./CTASection";
+import styles from "./Home.module.css";
 
 export default function () {
   return (
@@ -26,6 +27,8 @@ export default function () {
       <section>
         <GuestBook />
       </section>
+
+      <div className={styles.divider} />
 
       <section>
         <GallerySection />
