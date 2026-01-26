@@ -59,23 +59,26 @@ export default function Navbar() {
           "w-full text-sm px-4 sm:px-6 lg:px-10 transition-all duration-500 flex items-center justify-between",
           isSolid
             ? "bg-white/95 backdrop-blur-sm shadow-sm h-14"
-            : "bg-transparent text-white h-16"
+            : "bg-transparent text-white h-16",
         )}
       >
         {/* Logo + Brand */}
-        <div className="flex items-center space-x-3 min-w-0">
-          <Link to="/" className="flex-shrink-0">
+        <div className="flex items-center space-x-4 min-w-0 group">
+          <Link to="/" className="flex-shrink-0 relative">
             <img
               src={getImageUrl("Navbar/elephant.png")}
-              className="h-9 w-auto transition-transform duration-300 hover:scale-105"
+              className="h-9 w-auto transition-transform duration-500 ease-out group-hover:scale-110"
               alt="Elephant Logo"
             />
+            {/* Soft gold glow */}
+            <span className="absolute inset-0 rounded-full blur-lg opacity-0 group-hover:opacity-40 transition bg-[#d2a679]/40"></span>
           </Link>
+
           <Link
             to="/"
             className={classNames(
-              "text-xl sm:text-2xl font-[Playfair Display] font-bold tracking-widest whitespace-nowrap transition-colors duration-300",
-              isSolid ? "text-[#2d1b00]" : "text-white"
+              "relative font-[Playfair Display] font-semibold text-lg sm:text-xl tracking-[0.28em] uppercase whitespace-nowrap transition-all duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-[#d2a679] after:transition-all after:duration-500 hover:after:w-full",
+              isSolid ? "text-[#2d1b00]" : "text-white",
             )}
           >
             Grand Line Safaris
@@ -94,7 +97,7 @@ export default function Navbar() {
               href="tel:+254701020202"
               className={classNames(
                 "text-inherit no-underline transition-colors duration-100",
-                isSolid ? "text-[#2d1b00]" : "text-white"
+                isSolid ? "text-[#2d1b00]" : "text-white",
               )}
             >
               +254 701 020 202
@@ -104,7 +107,7 @@ export default function Navbar() {
             to="/contact"
             className={classNames(
               "flex items-center gap-2 font-medium hover:underline tracking-wider transition",
-              isSolid ? "text-[#d2a679]" : "text-white"
+              isSolid ? "text-[#d2a679]" : "text-white",
             )}
           >
             <img
@@ -121,7 +124,7 @@ export default function Navbar() {
           <button
             className={classNames(
               "p-2 focus:outline-none",
-              isSolid ? "text-[#2d1b00]" : "text-white"
+              isSolid ? "text-[#2d1b00]" : "text-white",
             )}
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
@@ -182,7 +185,7 @@ export default function Navbar() {
                   >
                     {item.name}
                   </Link>
-                )
+                ),
               )}
 
               {/* CTA Buttons */}
@@ -197,7 +200,7 @@ export default function Navbar() {
                   className="w-full border border-[#d2a679] text-[#d2a679] px-4 py-2 rounded-md font-semibold tracking-wide hover:bg-[#d2a679] hover:text-[#2d1b00] transition transform hover:scale-105 text-sm"
                   onClick={() => setIsOpen(false)}
                 >
-                  Request  Brochure
+                  Request Brochure
                 </button>
               </div>
 
@@ -357,7 +360,7 @@ export default function Navbar() {
       <nav
         className={classNames(
           "hidden md:block transition-all duration-500 relative",
-          isSolid ? "bg-white/95 backdrop-blur-sm shadow-md" : "bg-transparent"
+          isSolid ? "bg-white/95 backdrop-blur-sm shadow-md" : "bg-transparent",
         )}
       >
         <div className="max-w-screen-xl mx-auto px-16 lg:px-28">
@@ -381,7 +384,7 @@ export default function Navbar() {
                         "px-2 py-1 text-base font-medium tracking-wider uppercase flex items-center gap-1 transition-colors duration-300",
                         isSolid
                           ? "text-[#2d1b00] hover:text-[#d2a679]"
-                          : "text-white hover:text-[#d2a679]"
+                          : "text-white hover:text-[#d2a679]",
                       )}
                     >
                       {item.name}
@@ -394,7 +397,7 @@ export default function Navbar() {
                         "absolute top-full left-0 transition-all duration-300",
                         activeDropdown === item.name.toLowerCase()
                           ? "opacity-100 visible"
-                          : "opacity-0 invisible"
+                          : "opacity-0 invisible",
                       )}
                       onMouseEnter={() =>
                         handleDropdownEnter(item.name.toLowerCase())
@@ -415,12 +418,12 @@ export default function Navbar() {
                       "px-2 py-1 text-base font-medium tracking-wider uppercase transition-colors duration-300",
                       isSolid
                         ? "text-[#2d1b00] hover:text-[#d2a679]"
-                        : "text-white hover:text-[#d2a679]"
+                        : "text-white hover:text-[#d2a679]",
                     )}
                   >
                     {item.name}
                   </Link>
-                )
+                ),
               )}
 
               {/* CTA Buttons */}
@@ -432,10 +435,10 @@ export default function Navbar() {
                   className={classNames(
                     "border border-[#d2a679] px-4 py-1.5 rounded-md text-sm font-semibold tracking-wide transition transform hover:scale-105 shadow-sm",
                     isSolid ? "text-[#2d1b00]" : "text-white",
-                    "hover:bg-[#d2a679] hover:text-[#2d1b00]"
+                    "hover:bg-[#d2a679] hover:text-[#2d1b00]",
                   )}
                 >
-                  Request  Brochure
+                  Request Brochure
                 </button>
               </div>
             </div>
