@@ -1,15 +1,13 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { FaLeaf, FaUsers, FaHotel } from "react-icons/fa";
 import { countries } from "../../data/countries";
 import { getImageUrl } from "../../utils";
-import styles from "./MiddlePart.module.css";
+import styles from "./Destinations.module.css";
 
-export default function MiddlePart() {
+export default function Destinations() {
   const featuredCountries = Object.values(countries);
 
   return (
-    <section className={styles.middlePart}>
+    <section className={styles.destinations}>
       {/* Intro Section */}
       <div className={styles.intro}>
         <h2>Discover Luxury & Legacy in Every Journey</h2>

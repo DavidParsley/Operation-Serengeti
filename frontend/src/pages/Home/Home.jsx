@@ -1,6 +1,5 @@
-import React from "react";
 import Hero from "./Hero";
-import MiddlePart from "./MiddlePart";
+import Destinations from "./Destinations";
 import WhyUs from "./WhyUs";
 import Experiences from "./Experiences";
 import CTASection from "./CTASection";
@@ -13,7 +12,7 @@ export default function () {
       </section>
 
       <section>
-        <MiddlePart />{" "}
+        <Destinations />
       </section>
 
       <section>
