@@ -1,94 +1,129 @@
 .whyUs {
-  background-color: var(--color-bg);
-  padding: 6rem 2rem;
+  background: linear-gradient(to bottom, #fffdf9, var(--color-bg));
+  padding: 5rem 2rem 6rem;
+  margin-top: -5rem;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
   text-align: center;
-  margin-top: -8rem; /* Pull the section up on desktop */
 }
 
 /* Intro */
+
 .intro {
-  max-width: 700px;
-  margin: 0 auto 3rem auto;
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+}
+
+.kicker {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
 }
 
 .intro h2 {
   font-family: var(--font-serif);
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   color: var(--color-secondary);
   margin-bottom: 1rem;
 }
 
 .intro p {
   font-family: var(--font-sans);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--color-secondary-text);
-  line-height: 1.6;
+  line-height: 1.75;
+  opacity: 0.85;
 }
 
-/* Highlights Section */
+/* Divider */
+
+.divider {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-primary),
+    transparent
+  );
+  margin: 2.5rem auto 3.5rem;
+  opacity: 0.7;
+}
+
+/* Highlights */
+
 .highlights {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
 }
 
 .highlightCard {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 2rem 1.5rem;
-  flex: 1 1 250px;
-  max-width: 280px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;          /* centers children horizontally */
-  flex-direction: column; /* vertical layout */
-  align-items: center;    /* horizontal centering */
-  text-align: center;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 14px;
+  padding: 2.6rem 2.2rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+  transition: transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+  position: relative;
+}
+
+.highlightCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(191, 163, 122, 0.25);
+  pointer-events: none;
 }
 
 .highlightCard:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.09);
+}
+
+.icon {
+  font-size: 2.3rem;
+  color: var(--color-primary);
+  margin-bottom: 1.4rem;
 }
 
 .highlightCard h4 {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
-  margin: 0.8rem 0;
+  font-size: 1.35rem;
   color: var(--color-secondary);
+  margin-bottom: 0.75rem;
 }
 
 .highlightCard p {
   font-family: var(--font-sans);
   font-size: 0.95rem;
+  line-height: 1.7;
   color: var(--color-secondary-text);
-  line-height: 1.5;
+  opacity: 0.85;
 }
 
-.icon {
-  display: block;
-  margin: 0 auto 1rem;
-  font-size: 2.5rem;
-  color: var(--color-primary);
-}
+/* Mobile */
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .highlights {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
   .whyUs {
-    padding: 4rem 1rem;
-    margin-top: 0.5rem; /* push it slightly down on mobile */
+    padding: 4rem 1.5rem 5rem;
+    margin-top: -2rem;
   }
 
   .intro h2 {
-    font-size: 2rem;
-  }
-
-  .intro p {
-    font-size: 1rem;
-  }
-
-  .highlightCard {
-    padding: 1.5rem 1rem;
+    font-size: 2.1rem;
   }
 }
