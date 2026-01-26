@@ -8,40 +8,49 @@ export default function WhyUs() {
       id: 1,
       icon: <FaLeaf />,
       title: "Private Luxury Lodges",
-      description: "Exclusive stays surrounded by nature, comfort, and elegance."
+      description:
+        "Exclusive stays in hand-selected lodges where privacy, elegance, and wilderness converge.",
     },
     {
       id: 2,
       icon: <FaUsers />,
       title: "Family & Legacy Safaris",
-      description: "Create memories that last generations, with intimate and private experiences."
+      description:
+        "Tailored journeys designed to create meaningful memories across generations.",
     },
     {
       id: 3,
       icon: <FaHotel />,
       title: "Conservation & Storytelling",
-      description: "Learn, engage, and give back while exploring the wild responsibly."
-    }
+      description:
+        "Travel that gives back — immersive experiences rooted in preservation and purpose.",
+    },
   ];
 
   return (
     <section className={styles.whyUs}>
-      <div className={styles.intro}>
-        <h2>Why Grand Line Safaris?</h2>
-        <p>
-          We combine luxury, intimacy, and purpose. Our experiences are designed to
-          leave you inspired, connected, and deeply enriched by the wild.
-        </p>
-      </div>
+      <div className={styles.container}>
+        <div className={styles.intro}>
+          <span className={styles.kicker}>Why Travel With Us</span>
+          <h2>Safari Experiences, Refined</h2>
+          <p>
+            At Grand Line Safaris, luxury is not excess — it is intention.
+            Every journey is crafted with restraint, care, and a deep respect
+            for place, people, and story.
+          </p>
+        </div>
 
-      <div className={styles.highlights}>
-        {highlights.map((item) => (
-          <div key={item.id} className={styles.highlightCard}>
-            <div className={styles.icon}>{item.icon}</div>
-            <h4>{item.title}</h4>
-            <p>{item.description}</p>
-          </div>
-        ))}
+        <div className={styles.divider} />
+
+        <div className={styles.highlights}>
+          {highlights.map((item) => (
+            <div key={item.id} className={styles.highlightCard}>
+              <div className={styles.icon}>{item.icon}</div>
+              <h4>{item.title}</h4>
+              <p>{item.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
