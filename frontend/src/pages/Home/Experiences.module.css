@@ -1,0 +1,206 @@
+@import "../../vars.css";
+
+/* =============================
+   Experiences Section
+============================= */
+.experiences {
+  background-color: var(--color-bg);
+  padding: 6rem 0 0 0;
+  text-align: center;
+  margin-top: -8rem;
+}
+
+/* Intro */
+.intro {
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  padding: 0 1rem;
+}
+
+.intro h2 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: var(--color-secondary);
+  margin-bottom: 1rem;
+}
+
+.intro p {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--color-secondary-text);
+  line-height: 1.6;
+}
+
+.fullImageContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.fullImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: unset; /* IMPORTANT */
+}
+
+
+/* Overlay for caption and buttons */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.45),
+    transparent
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none; /* prevents overlay from blocking interactions */
+}
+
+/* Centered Caption */
+.caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  padding: 0.8rem 1.6rem;
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Navigation buttons */
+.navButton {
+  background-color: rgba(255, 255, 255, 0.85);
+  color: var(--color-dark);
+  border: none;
+  padding: 0.8rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 4;
+  pointer-events: auto;
+}
+
+.navButton:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+}
+
+.navButton.left {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.navButton.right {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* =============================
+   Safari-Inspired Quote Section
+============================= */
+.quoteSection {
+  background-color: #f5efe6;
+  padding: 5rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-top: 2px solid #d6c7b0;
+}
+
+.quoteContainer {
+  max-width: 700px;
+  position: relative;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  font-family: var(--font-serif);
+}
+
+.quoteContainer blockquote {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: var(--color-secondary);
+  font-style: italic;
+  margin: 0;
+}
+
+.quoteContainer cite {
+  display: block;
+  margin-top: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--color-secondary-text);
+  font-size: 1rem;
+}
+
+.quoteIcon {
+  width: 40px;
+  height: 40px;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+/* =============================
+   Mobile Adjustments
+============================= */
+@media (max-width: 768px) {
+  .fullImageContainer {
+    max-height: 50vh;         /* Smaller on mobile */
+  }
+
+  .fullImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .caption {
+    font-size: 1.2rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .navButton {
+    padding: 0.6rem;
+    font-size: 1.2rem;
+  }
+
+  .intro h2 {
+    font-size: 2rem;
+  }
+
+  .intro p {
+    font-size: 1rem;
+  }
+
+  .quoteContainer {
+    padding: 1.5rem;
+  }
+
+  .quoteContainer blockquote {
+    font-size: 1.2rem;
+  }
+
+  .quoteIcon {
+    width: 28px;
+    height: 28px;
+  }
+}
