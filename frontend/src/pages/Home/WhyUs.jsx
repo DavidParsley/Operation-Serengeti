@@ -27,7 +27,7 @@ export default function WhyUs() {
   return (
     <section className={styles.whyUs}>
       <div className={styles.intro}>
-        <h2>Why Choose Grand Line Safaris?</h2>
+        <h2>Why Grand Line Safaris?</h2>
         <p>
           We combine luxury, intimacy, and purpose. Our experiences are designed to
           leave you inspired, connected, and deeply enriched by the wild.
