@@ -6,7 +6,7 @@ import GallerySection from "./GallerySection";
 import Foundation from "./Foundation";
 import Villas from "./Villas";
 import BlogSection from "./BlogSection";
-import CTASection from "./CTASection";
+import NewsletterSection from "./NewsletterSection";
 import styles from "./Home.module.css";
 
 export default function () {
@@ -47,7 +47,7 @@ export default function () {
       </section>
 
       <section>
-        <CTASection />
+        <NewsletterSection />
       </section>
     </div>
   );

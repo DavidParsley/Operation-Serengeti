@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import styles from "./CTASection.module.css";
+import styles from "./NewsletterSection.module.css";
 import { getImageUrl } from "../../utils";
 
-export default function CTASection() {
+export default function NewsletterSection() {
   const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
@@ -15,9 +15,9 @@ export default function CTASection() {
 
   return (
     <section
-      className={styles.ctaSection}
+      className={styles.newsletterSection}
       style={{
-        backgroundImage: `url(${getImageUrl("Home/CTASection/cta.avif")})`,
+        backgroundImage: `url(${getImageUrl("Home/NewsletterSection/Newsletter.avif")})`,
         loading:"lazy",
         backgroundSize: "cover",
         backgroundPosition: "center",
