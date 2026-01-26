@@ -3,6 +3,7 @@ import Destinations from "./Destinations";
 import WhyUs from "./WhyUs";
 import GuestBook from "./GuestBook";
 import GallerySection from "./GallerySection";
+import Foundation from "./Foundation";
 import Experiences from "./Experiences";
 import CTASection from "./CTASection";
 
@@ -27,6 +28,10 @@ export default function () {
 
       <section>
         <GallerySection />
+      </section>
+
+       <section>
+        <Foundation />
       </section>
 
       {/* <section>
