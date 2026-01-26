@@ -58,7 +58,7 @@ export default function Navbar() {
         className={classNames(
           "w-full text-sm px-4 sm:px-6 lg:px-10 transition-all duration-500 flex items-center justify-between",
           isSolid
-            ? "bg-white/95 backdrop-blur-sm shadow-sm h-14"
+            ? "bg-white/90 backdrop-blur-md shadow-[0_6px_24px_rgba(0,0,0,0.06)] h-14"
             : "bg-transparent text-white h-16",
         )}
       >
@@ -77,7 +77,7 @@ export default function Navbar() {
           <Link
             to="/"
             className={classNames(
-              "relative font-[Playfair Display] font-semibold text-lg sm:text-xl tracking-[0.28em] uppercase whitespace-nowrap transition-all duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-[#d2a679] after:transition-all after:duration-500 hover:after:w-full",
+              "relative font-[Playfair Display] font-medium text-sm sm:text-xl tracking-[0.28em] uppercase whitespace-nowrap transition-all duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-[#d2a679] after:transition-all after:duration-500 hover:after:w-full",
               isSolid ? "text-[#2d1b00]" : "text-white",
             )}
           >
@@ -170,28 +170,28 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-xl z-40 transition-all duration-300">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-[#fffdf9] shadow-2xl z-40 transition-all duration-300 border-t border-[#e8dccb]">
           {!activeMobileDropdown ? (
             // MAIN MOBILE MENU
-            <div className="px-5 pt-5 pb-6 space-y-4">
+            <div className="px-6 pt-6 pb-7 space-y-5">
               {navItems.map((item) =>
                 item.type === "dropdown" ? (
                   <div key={item.name} className="space-y-1">
                     <button
-                      className="w-full flex justify-between items-center text-[#2d1b00] font-medium text-base tracking-wide pb-2 border-b border-gray-200 last:border-0 hover:text-[#d2a679] transition-colors"
+                      className="w-full flex justify-between items-center text-[#2d1b00] font-[Playfair Display] text-[15px] tracking-widest uppercase pb-3 border-b border-[#eee2d3] hover:text-[#d2a679] transition-colors"
                       onClick={() =>
                         setActiveMobileDropdown(item.name.toLowerCase())
                       }
                     >
                       {item.name}
-                      <span className="ml-2 text-sm">▶</span>
+                      <span className="ml-2 text-xs tracking-normal">›</span>
                     </button>
                   </div>
                 ) : (
                   <Link
                     key={item.name}
                     to={item.to || "#"}
-                    className="block pb-2 text-[#2d1b00] hover:text-[#d2a679] text-base font-medium tracking-wide border-b border-gray-200 last:border-0 transition-colors"
+                    className="block pb-3 text-[#2d1b00] hover:text-[#d2a679] text-[15px] font-[Playfair Display] tracking-widest uppercase border-b border-[#eee2d3] transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
@@ -200,32 +200,32 @@ export default function Navbar() {
               )}
 
               {/* CTA Buttons */}
-              <div className="space-y-3 pt-3">
+              <div className="space-y-3 pt-4">
                 <button
-                  className="w-full bg-gradient-to-r from-[#d2a679] to-[#b08b57] text-[#2d1b00] px-4 py-2 rounded-md font-semibold tracking-wide hover:opacity-95 transition transform hover:scale-105 shadow-sm text-sm"
+                  className="w-full bg-gradient-to-r from-[#d2a679] to-[#b08b57] text-[#2d1b00] px-4 py-2.5 rounded-lg font-semibold tracking-wider uppercase hover:opacity-95 transition transform hover:scale-[1.02] shadow-md text-sm"
                   onClick={() => setIsOpen(false)}
                 >
                   Plan Your Journey
                 </button>
                 <button
-                  className="w-full border border-[#d2a679] text-[#d2a679] px-4 py-2 rounded-md font-semibold tracking-wide hover:bg-[#d2a679] hover:text-[#2d1b00] transition transform hover:scale-105 text-sm"
+                  className="w-full border border-[#d2a679] text-[#2d1b00] px-4 py-2.5 rounded-lg font-semibold tracking-wider uppercase hover:bg-[#d2a679] hover:text-[#2d1b00] transition transform hover:scale-[1.02] text-sm"
                   onClick={() => setIsOpen(false)}
                 >
                   Request Brochure
                 </button>
               </div>
 
-              {/* Contact Info Side by Side */}
-              <div className="flex justify-between items-center pt-5 border-t border-gray-200">
+              {/* Contact Info */}
+              <div className="flex justify-between items-center pt-6 border-t border-[#eee2d3] text-sm">
                 <div className="flex items-center space-x-2">
                   <img
                     src={getImageUrl("Navbar/phone.png")}
-                    className="h-4 w-auto"
+                    className="h-4 w-auto opacity-80"
                     alt="Phone icon"
                   />
                   <a
                     href="tel:+254701020202"
-                    className="text-sm font-medium hover:underline text-[#2d1b00]"
+                    className="font-medium tracking-wide text-[#2d1b00] hover:text-[#d2a679] transition"
                   >
                     +254 701 020 202
                   </a>
@@ -233,36 +233,35 @@ export default function Navbar() {
 
                 <Link
                   to="/contact"
-                  className="flex items-center space-x-2 text-[#d2a679] font-medium text-sm hover:underline"
+                  className="flex items-center space-x-2 text-[#b08b57] font-semibold tracking-wide hover:text-[#d2a679] transition"
                   onClick={() => setIsOpen(false)}
                 >
                   <img
                     src={getImageUrl("Navbar/email.png")}
-                    className="h-4 w-auto"
+                    className="h-4 w-auto opacity-80"
                     alt="Email icon"
                   />
-                  <span>Contact Us</span>
+                  <span>Contact</span>
                 </Link>
               </div>
             </div>
           ) : (
             // FULL-SCREEN DROPDOWN VIEW
-            <div className="px-5 pt-5 pb-6 min-h-[70vh] transition-all duration-300">
+            <div className="px-6 pt-6 pb-7 min-h-[70vh] transition-all duration-300 bg-[#fffdf9]">
               {/* Back button */}
               <button
                 onClick={() => setActiveMobileDropdown(null)}
-                className="flex items-center text-[#2d1b00] font-semibold mb-4 hover:text-[#d2a679] transition-colors"
+                className="flex items-center text-[#2d1b00] font-[Playfair Display] tracking-widest uppercase mb-5 hover:text-[#d2a679] transition-colors text-sm"
               >
-                <span className="mr-2">←</span> Back
+                <span className="mr-2 text-lg">←</span> Back
               </button>
 
-              {/* Destinations / Safaris / Why Us Content */}
+              {/* Destinations */}
               {activeMobileDropdown === "destinations" && (
-                <div className="space-y-3">
-                  {/* Example region: East Africa */}
-                  <div className="border-b border-gray-200">
+                <div className="space-y-4">
+                  <div className="border-b border-[#eee2d3] pb-3">
                     <button
-                      className="w-full flex justify-between items-center px-3 py-2 text-[#2d1b00] font-medium hover:text-[#d2a679] transition-colors"
+                      className="w-full flex justify-between items-center px-2 py-2 text-[#2d1b00] font-[Playfair Display] tracking-widest uppercase hover:text-[#d2a679] transition-colors text-sm"
                       onClick={() =>
                         setMobileDropdowns((prev) => ({
                           ...prev,
@@ -271,26 +270,27 @@ export default function Navbar() {
                       }
                     >
                       East Africa
-                      <span className="ml-2 text-sm">
+                      <span className="ml-2 text-xs">
                         {mobileDropdowns.eastafrica ? "▲" : "▼"}
                       </span>
                     </button>
+
                     {mobileDropdowns.eastafrica && (
-                      <div className="pl-4 mt-2 space-y-1">
-                        {/* Country list */}
+                      <div className="pl-3 mt-3 space-y-1">
                         {regions
                           .find((r) => r.region === "East Africa")
                           ?.countries.map((country) => (
                             <Link
                               key={country.name}
                               to={country.path}
-                              className="flex justify-between items-center px-3 py-2 text-[#2d1b00] hover:text-[#d2a679] hover:bg-[#faf6f0] rounded-md transition"
+                              className="flex justify-between items-center px-3 py-2 text-[#2d1b00] hover:text-[#d2a679] hover:bg-[#faf6f0] rounded-lg transition text-sm tracking-wide"
+                              onClick={() => setIsOpen(false)}
                             >
                               <span>{country.name}</span>
                               {country.image && (
                                 <img
                                   src={getImageUrl(country.image)}
-                                  className="h-5 w-5 object-cover rounded-sm ml-2"
+                                  className="h-5 w-5 object-cover rounded-sm ml-2 shadow-sm"
                                   alt={country.name}
                                 />
                               )}
@@ -302,18 +302,20 @@ export default function Navbar() {
                 </div>
               )}
 
+              {/* Safaris */}
               {activeMobileDropdown === "safaris" && (
-                <div className="flex justify-center items-center h-full py-20">
-                  <span className="text-[#b08b57] italic font-medium text-center text-lg">
+                <div className="flex justify-center items-center h-full py-24">
+                  <span className="text-[#b08b57] italic font-[Playfair Display] text-center text-lg">
                     Coming soon...
                   </span>
                 </div>
               )}
 
+              {/* Why Us */}
               {activeMobileDropdown === "why us" && (
-                <div className="space-y-3">
+                <div className="space-y-4">
                   <button
-                    className="w-full flex justify-between items-center px-3 py-2 text-[#2d1b00] font-medium hover:text-[#d2a679] transition-colors"
+                    className="w-full flex justify-between items-center px-2 py-2 text-[#2d1b00] font-[Playfair Display] tracking-widest uppercase hover:text-[#d2a679] transition-colors text-sm"
                     onClick={() =>
                       setMobileDropdowns((prev) => ({
                         ...prev,
@@ -322,12 +324,13 @@ export default function Navbar() {
                     }
                   >
                     Why Us
-                    <span className="ml-2 text-sm">
+                    <span className="ml-2 text-xs">
                       {mobileDropdowns.whyus ? "▲" : "▼"}
                     </span>
                   </button>
+
                   {mobileDropdowns.whyus && (
-                    <div className="pl-4 mt-2 space-y-1">
+                    <div className="pl-3 mt-3 space-y-1">
                       {[
                         {
                           name: "Grand Line Blog",
@@ -348,12 +351,13 @@ export default function Navbar() {
                         <Link
                           key={link.name}
                           to={link.path}
-                          className="flex justify-between items-center px-3 py-2 text-[#2d1b00] hover:text-[#d2a679] hover:bg-[#faf6f0] rounded-md transition"
+                          className="flex justify-between items-center px-3 py-2 text-[#2d1b00] hover:text-[#d2a679] hover:bg-[#faf6f0] rounded-lg transition text-sm tracking-wide"
+                          onClick={() => setIsOpen(false)}
                         >
                           <span>{link.name}</span>
                           <img
                             src={getImageUrl(link.image)}
-                            className="h-5 w-5 object-cover rounded-sm ml-2"
+                            className="h-5 w-5 object-cover rounded-sm ml-2 shadow-sm"
                             alt={link.name}
                           />
                         </Link>
