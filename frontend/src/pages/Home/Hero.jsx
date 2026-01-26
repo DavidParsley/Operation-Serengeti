@@ -7,7 +7,6 @@ export default function Hero() {
   const [loadVideo, setLoadVideo] = useState(false);
 
   useEffect(() => {
-    // Slight delay to avoid jank; video is optional enhancement
     const timeout = setTimeout(() => setLoadVideo(true), 800);
     return () => clearTimeout(timeout);
   }, []);
@@ -16,7 +15,6 @@ export default function Hero() {
 
   return (
     <section className={styles.hero}>
-      {/* Always show poster immediately */}
       <img
         src={posterUrl}
         alt="Hero preview"
@@ -24,7 +22,6 @@ export default function Hero() {
         aria-hidden
       />
 
-      {/* Background video (optional, loads after 0.8s) */}
       {loadVideo && (
         <video
           className={styles.backgroundVideo}
@@ -45,33 +42,31 @@ export default function Hero() {
         </video>
       )}
 
-      {/* Dark overlay */}
       <div className={styles.overlay}></div>
 
-      {/* Content */}
       <div className={styles.content}>
-        <h1 className={styles.title}>
-          Luxury East African Safaris
-        </h1>
+        <span className={styles.kicker}>Grand Line Safaris</span>
+
+        <h1 className={styles.title}>Luxury East African Safaris</h1>
+
         <p className={styles.subtitle}>
-         Premium Travel & Leisure
+          Private journeys crafted for legacy, intimacy, and wonder.
         </p>
-        {/* <p className={styles.supporting}>
-          Private, cinematic journeys that honor your heritage, deepen family
-          bonds, and capture your story for generations.
-        </p> */}
 
         <div className={styles.buttons}>
-          <a className={`${styles.btn} ${styles.primaryBtn}`} href="/">Begin Your Journey</a>
-          <a className={`${styles.btn} ${styles.secondaryBtn}`}href="/">See Legacy Experiences</a>
+          <a className={`${styles.btn} ${styles.primaryBtn}`} href="/">
+            Begin Your Journey
+          </a>
+          <a className={`${styles.btn} ${styles.secondaryBtn}`} href="/">
+            Explore Experiences
+          </a>
         </div>
 
         <p className={styles.tagline}>
-          Grand Line Safaris — Crafting Legacy Through the Wild.
+          Crafting extraordinary stories through the wild.
         </p>
       </div>
 
-      {/* Floating arrows */}
       <div className={styles.leftArrow} aria-hidden>
         <FaChevronDown />
       </div>

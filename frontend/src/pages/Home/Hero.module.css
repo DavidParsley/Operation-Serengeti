@@ -13,20 +13,20 @@
   font-family: var(--font-serif);
 }
 
+/* Poster */
 .heroPoster {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1; /* behind content */
+  z-index: -1;
 }
 
-/* Background video */
+/* Video */
 .backgroundVideo {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -35,7 +35,7 @@
   z-index: 0;
 }
 
-/* Cinematic pan */
+/* Cinematic motion */
 @keyframes slowPan {
   0% {
     transform: scale(1.05) translateX(0);
@@ -48,29 +48,27 @@
 /* Overlay */
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.15));
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,0.25), rgba(0,0,0,0.6)),
+    linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.45));
   z-index: 1;
 }
-
 
 /* Content */
 .content {
   position: relative;
   z-index: 2;
-  max-width: 800px;
-  padding: 0 20px;
-  animation: fadeIn 2s ease forwards;
-  margin-top: 16vh;
+  max-width: 760px;
+  padding: 0 24px;
+  animation: fadeIn 1.8s ease forwards;
+  margin-top: 14vh;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -78,27 +76,35 @@
   }
 }
 
+/* Kicker */
+.kicker {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+/* Headline */
 .title {
   font-family: var(--font-serif);
-  font-size: 2.8rem;
+  font-size: 3.1rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
+  line-height: 1.2;
   color: var(--color-text);
 }
 
+/* Subheadline */
 .subtitle {
   font-family: var(--font-sans);
-  font-size: 1.25rem;
-  color: #e8ddcc;
-  margin-bottom: 0.8rem;
-}
-
-.supporting {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  color: #f5e9d2;
-  margin-bottom: 2.5rem;
+  font-size: 1.2rem;
+  color: #eadfcf;
+  margin-bottom: 2.4rem;
   line-height: 1.6;
 }
 
@@ -106,63 +112,73 @@
 .buttons {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.2rem;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .btn {
   text-decoration: none;
-  min-width: 160px;
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-size: 0.95rem;
+  min-width: 170px;
+  padding: 13px 28px;
+  border-radius: 999px;
+  font-size: 0.85rem;
   font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   transition: all var(--transition-fast);
-  letter-spacing: 0.5px;
+  position: relative;
 }
 
+/* Primary CTA */
 .primaryBtn {
-  background-color: var(--color-primary);
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    #d2a679
+  );
   color: var(--color-dark);
-  border: 1px solid var(--color-primary);
+  border: none;
+  box-shadow: 0 12px 30px rgba(191, 163, 122, 0.35);
 }
 
 .primaryBtn:hover {
-  background-color: transparent;
-  color: var(--color-primary);
-  border: 1px solid var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(191, 163, 122, 0.5);
 }
 
+/* Secondary CTA */
 .secondaryBtn {
-  background-color: transparent;
+  background: transparent;
   color: var(--color-text);
-  border: 1px solid var(--color-text);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
 }
 
 .secondaryBtn:hover {
-  background-color: var(--color-text);
-  color: var(--color-dark);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--color-text);
 }
 
 /* Tagline */
 .tagline {
   font-family: var(--font-sans);
-  font-size: 0.95rem;
-  color: #e8dcca;
-  font-style: italic;
-  letter-spacing: 0.5px;
+  font-size: 0.85rem;
+  color: #e6dac6;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.85;
 }
 
-/* Floating Arrows */
+/* Scroll arrows */
 .leftArrow,
 .rightArrow {
   position: absolute;
-  bottom: 2rem;
-  font-size: 2.4rem; /* made larger */
+  bottom: 2.4rem;
+  font-size: 2.2rem;
   color: var(--color-text);
   z-index: 3;
-  opacity: 0.85;
+  opacity: 0.75;
   cursor: pointer;
   transition: opacity 0.3s;
   animation: arrowScrollPrompt 3s ease-in-out infinite;
@@ -181,7 +197,6 @@
   right: 3%;
 }
 
-/* New animation for scroll prompt */
 @keyframes arrowScrollPrompt {
   0% {
     opacity: 0;
@@ -193,37 +208,35 @@
   }
   50% {
     opacity: 1;
-    transform: translateY(10px);
+    transform: translateY(12px);
   }
   80% {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(18px);
   }
   100% {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(18px);
   }
 }
 
-/* Mobile adjustments */
+/* Mobile */
 @media (max-width: 768px) {
   .leftArrow {
     display: none;
   }
+
   .rightArrow {
-    left: 45%;
+    left: 50%;
     transform: translateX(-50%);
-    font-size: 2.5rem; /* even more prominent on mobile */
+    font-size: 2.4rem;
   }
-  
+
   .title {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 2.1rem;
   }
+
   .subtitle {
-    font-size: 1.1rem;
-  }
-  .supporting {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
   }
 }
