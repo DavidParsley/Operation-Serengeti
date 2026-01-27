@@ -9,7 +9,7 @@ const RegionMenu = () => {
   const [hoveredRegion, setHoveredRegion] = useState(null);
 
   return (
-    <div className="relative flex flex-col gap-2 text-gray-700">
+    <div className="relative flex flex-col gap-3 text-[#2d1b00]">
       {regions.map((region) => (
         <div
           key={region.region}
@@ -17,28 +17,38 @@ const RegionMenu = () => {
           onMouseEnter={() => setHoveredRegion(region.region)}
           onMouseLeave={() => setHoveredRegion(null)}
         >
-          <div className="cursor-pointer hover:text-primary font-medium transition-colors">
-            {region.region}
+          {/* Region Label */}
+          <div className="cursor-pointer font-medium tracking-wide transition-colors duration-200 group-hover:text-[#d2a679] flex items-center gap-2">
+            <span>{region.region}</span>
+            <span className="text-xs text-[#b08b57] opacity-0 group-hover:opacity-100 transition">
+              →
+            </span>
           </div>
 
+          {/* Floating Country Panel */}
           <AnimatePresence>
             {hoveredRegion === region.region && (
               <motion.div
-                initial={{ opacity: 0, x: 10 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 10 }}
-                transition={{ duration: 0.2 }}
-                className="absolute top-0 left-full ml-2 bg-white shadow-lg rounded-lg py-2 px-3 w-40"
+                initial={{ opacity: 0, x: 12, scale: 0.98 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: 12, scale: 0.98 }}
+                transition={{ duration: 0.22, ease: "easeOut" }}
+                className="absolute top-0 left-full ml-4 bg-white/95 backdrop-blur-md border border-[#eee4d6] shadow-[0_18px_45px_rgba(0,0,0,0.25)] rounded-xl py-3 px-3 w-44 z-50"
               >
-                {region.countries.map((code) => (
-                  <Link
-                    key={code}
-                    to={`/destinations/${code}`}
-                    className="block px-2 py-1 text-sm text-gray-600 hover:bg-gray-100 hover:text-primary rounded"
-                  >
-                    {countries[code].name}
-                  </Link>
-                ))}
+                <div className="flex flex-col gap-1">
+                  {region.countries.map((code) => (
+                    <Link
+                      key={code}
+                      to={`/destinations/${code}`}
+                      className="group flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium tracking-wide text-[#2d1b00] hover:text-[#d2a679] hover:bg-[#faf6f0] transition-all"
+                    >
+                      <span>{countries[code].name}</span>
+                      <span className="text-xs text-[#b08b57] opacity-0 group-hover:opacity-100 transition">
+                        →
+                      </span>
+                    </Link>
+                  ))}
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
