@@ -9,8 +9,7 @@ export default function NewsletterSection() {
     e.preventDefault();
     if (!email) return;
     console.log("Email submitted:", email);
-    setEmail(""); // reset input
-    // Integrate API or newsletter service here
+    setEmail("");
   };
 
   return (
@@ -18,16 +17,18 @@ export default function NewsletterSection() {
       className={styles.newsletterSection}
       style={{
         backgroundImage: `url(${getImageUrl("Home/NewsletterSection/Newsletter.avif")})`,
-        loading:"lazy",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
       <div className={styles.overlay}></div>
+
       <div className={styles.content}>
+        <span className={styles.kicker}>Private Invitations</span>
         <h2>Join Our Safari Community</h2>
         <p>
-          Receive exclusive stories, offers, and transformational safari experiences directly in your inbox.
+          Receive exclusive stories, handcrafted journeys, and transformative
+          safari experiences directly in your inbox.
         </p>
 
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -36,7 +37,7 @@ export default function NewsletterSection() {
             id="email"
             name="email"
             autoComplete="email"
-            placeholder="Enter your email"
+            placeholder="Enter your email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
