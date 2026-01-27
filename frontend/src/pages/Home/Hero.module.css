@@ -174,41 +174,43 @@
 .leftArrow,
 .rightArrow {
   position: absolute;
-  bottom: 2.4rem;
-  font-size: 2.2rem;
+  bottom: 2.6rem;
+  font-size: 2.3rem;
   color: var(--color-text);
   z-index: 3;
-  opacity: 0.75;
   cursor: pointer;
-  transition: opacity 0.3s;
-  animation: arrowScrollPrompt 3s ease-in-out infinite;
+  opacity: 0.85;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  animation: luxuryArrowFloat 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .leftArrow:hover,
 .rightArrow:hover {
   opacity: 1;
+  transform: translateY(2px);
 }
 
 .leftArrow {
-  left: 3%;
+  left: 3.5%;
 }
 
 .rightArrow {
-  right: 3%;
+  right: 3.5%;
 }
 
-@keyframes arrowScrollPrompt {
+@keyframes luxuryArrowFloat {
   0% {
     opacity: 0;
+    transform: translateY(-6px);
+  }
+  25% {
+    opacity: 0.9;
     transform: translateY(0);
   }
-  20% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(12px);
+  55% {
+    opacity: 0.9;
+    transform: translateY(10px);
   }
   80% {
     opacity: 0;
@@ -228,8 +230,9 @@
 
   .rightArrow {
     left: 50%;
+    right: auto;
     transform: translateX(-50%);
-    font-size: 2.4rem;
+    font-size: 2.6rem;
   }
 
   .title {
