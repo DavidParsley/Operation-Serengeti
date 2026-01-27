@@ -5,17 +5,17 @@ export const regions = [
       {
         name: "Kenya",
         path: "/destinations/kenya",
-        image: "Navbar/kenya.png",
+        image: "Navbar/Kenya.svg",
       },
       {
         name: "Tanzania",
         path: "/destinations/tanzania",
-        image: "Navbar/tanzania.png",
+        image: "Navbar/Tanzania.svg",
       },
       {
         name: "Rwanda",
         path: "/destinations/rwanda",
-        image: "Navbar/rwanda.png",
+        image: "Navbar/Rwanda.svg",
       },
     ],
   },

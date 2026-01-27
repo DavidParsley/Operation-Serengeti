@@ -66,7 +66,7 @@ export default function Navbar() {
         <div className="flex items-center space-x-4 min-w-0 group">
           <Link to="/" className="flex-shrink-0 relative">
             <img
-              src={getImageUrl("Navbar/elephant.png")}
+              src={getImageUrl("Navbar/elephant.svg")}
               className="h-9 w-auto transition-transform duration-500 ease-out group-hover:scale-110"
               alt="Elephant Logo"
             />
@@ -91,7 +91,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3 group cursor-pointer">
             <span className="w-8 h-8 rounded-full bg-[#d2a679]/10 flex items-center justify-center transition group-hover:bg-[#d2a679]/20">
               <img
-                src={getImageUrl("Navbar/phone.png")}
+                src={getImageUrl("Navbar/phone.svg")}
                 className="h-4 w-auto"
                 alt="Phone icon"
               />
@@ -119,7 +119,7 @@ export default function Navbar() {
           >
             <span className="w-8 h-8 rounded-full bg-[#d2a679]/15 flex items-center justify-center transition group-hover:bg-[#d2a679]/30">
               <img
-                src={getImageUrl("Navbar/email.png")}
+                src={getImageUrl("Navbar/email.svg")}
                 className="h-4 w-auto"
                 alt="Email icon"
               />
@@ -170,7 +170,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-[#fffdf9] shadow-2xl z-40 transition-all duration-300 border-t border-[#e8dccb]">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-[#fffdf9] shadow-2xl z-40 border-t border-[#e8dccb]">
           {!activeMobileDropdown ? (
             // MAIN MOBILE MENU
             <div className="px-6 pt-6 pb-7 space-y-5">
@@ -219,7 +219,7 @@ export default function Navbar() {
               <div className="flex justify-between items-center pt-6 border-t border-[#eee2d3] text-sm">
                 <div className="flex items-center space-x-2">
                   <img
-                    src={getImageUrl("Navbar/phone.png")}
+                    src={getImageUrl("Navbar/phone.svg")}
                     className="h-4 w-auto opacity-80"
                     alt="Phone icon"
                   />
@@ -237,7 +237,7 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                 >
                   <img
-                    src={getImageUrl("Navbar/email.png")}
+                    src={getImageUrl("Navbar/email.svg")}
                     className="h-4 w-auto opacity-80"
                     alt="Email icon"
                   />
@@ -246,124 +246,113 @@ export default function Navbar() {
               </div>
             </div>
           ) : (
-            // FULL-SCREEN DROPDOWN VIEW
-            <div className="px-6 pt-6 pb-7 min-h-[70vh] transition-all duration-300 bg-[#fffdf9]">
+            // FULL-SCREEN SUBMENU — INSTANT RENDER
+            <div className="px-6 pt-6 pb-7 min-h-[70vh]">
               {/* Back button */}
               <button
                 onClick={() => setActiveMobileDropdown(null)}
-                className="flex items-center text-[#2d1b00] font-[Playfair Display] tracking-widest uppercase mb-5 hover:text-[#d2a679] transition-colors text-sm"
+                className="flex items-center text-[#2d1b00] font-semibold mb-5 hover:text-[#d2a679] transition"
               >
                 <span className="mr-2 text-lg">←</span> Back
               </button>
 
-              {/* Destinations */}
+              {/* DESTINATIONS */}
               {activeMobileDropdown === "destinations" && (
                 <div className="space-y-4">
-                  <div className="border-b border-[#eee2d3] pb-3">
-                    <button
-                      className="w-full flex justify-between items-center px-2 py-2 text-[#2d1b00] font-[Playfair Display] tracking-widest uppercase hover:text-[#d2a679] transition-colors text-sm"
-                      onClick={() =>
-                        setMobileDropdowns((prev) => ({
-                          ...prev,
-                          eastafrica: !prev.eastafrica,
-                        }))
-                      }
+                  {regions.map((region) => (
+                    <div
+                      key={region.region}
+                      className="border-b border-[#eee2d3] pb-2 last:border-0"
                     >
-                      East Africa
-                      <span className="ml-2 text-xs">
-                        {mobileDropdowns.eastafrica ? "▲" : "▼"}
-                      </span>
-                    </button>
+                      <button
+                        className="w-full flex justify-between items-center text-[#2d1b00] font-medium tracking-wide py-2 hover:text-[#d2a679] transition"
+                        onClick={() =>
+                          setMobileDropdowns((prev) => ({
+                            ...prev,
+                            [region.region]: !prev[region.region],
+                          }))
+                        }
+                      >
+                        {region.region}
+                        <span className="text-xs tracking-widest text-[#b08b57]">
+                          {mobileDropdowns[region.region] ? "—" : "+"}
+                        </span>
+                      </button>
 
-                    {mobileDropdowns.eastafrica && (
-                      <div className="pl-3 mt-3 space-y-1">
-                        {regions
-                          .find((r) => r.region === "East Africa")
-                          ?.countries.map((country) => (
-                            <Link
-                              key={country.name}
-                              to={country.path}
-                              className="flex justify-between items-center px-3 py-2 text-[#2d1b00] hover:text-[#d2a679] hover:bg-[#faf6f0] rounded-lg transition text-sm tracking-wide"
-                              onClick={() => setIsOpen(false)}
-                            >
-                              <span>{country.name}</span>
-                              {country.image && (
-                                <img
-                                  src={getImageUrl(country.image)}
-                                  className="h-5 w-5 object-cover rounded-sm ml-2 shadow-sm"
-                                  alt={country.name}
-                                />
-                              )}
-                            </Link>
-                          ))}
+                      {/* ALWAYS RENDERED — just hidden via CSS */}
+                      <div
+                        className={`pl-4 mt-2 space-y-1 ${
+                          mobileDropdowns[region.region] ? "block" : "hidden"
+                        }`}
+                      >
+                        {region.countries.map((country) => (
+                          <Link
+                            key={country.name}
+                            to={country.path}
+                            className="flex justify-between items-center px-3 py-2 rounded-md text-[#2d1b00] hover:text-[#d2a679] hover:bg-[#faf6f0] transition"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            <span className="tracking-wide text-sm">
+                              {country.name}
+                            </span>
+                            {country.image && (
+                              <img
+                                src={getImageUrl(country.image)}
+                                className="h-5 w-5 object-cover rounded-sm ml-2 opacity-90"
+                                alt={country.name}
+                              />
+                            )}
+                          </Link>
+                        ))}
                       </div>
-                    )}
-                  </div>
+                    </div>
+                  ))}
                 </div>
               )}
 
-              {/* Safaris */}
+              {/* SAFARIS */}
               {activeMobileDropdown === "safaris" && (
-                <div className="flex justify-center items-center h-full py-24">
-                  <span className="text-[#b08b57] italic font-[Playfair Display] text-center text-lg">
+                <div className="flex justify-center items-center h-full py-20">
+                  <span className="text-[#b08b57] italic font-medium text-center text-lg">
                     Coming soon...
                   </span>
                 </div>
               )}
 
-              {/* Why Us */}
+              {/* WHY US */}
               {activeMobileDropdown === "why us" && (
                 <div className="space-y-4">
-                  <button
-                    className="w-full flex justify-between items-center px-2 py-2 text-[#2d1b00] font-[Playfair Display] tracking-widest uppercase hover:text-[#d2a679] transition-colors text-sm"
-                    onClick={() =>
-                      setMobileDropdowns((prev) => ({
-                        ...prev,
-                        whyus: !prev.whyus,
-                      }))
-                    }
-                  >
-                    Why Us
-                    <span className="ml-2 text-xs">
-                      {mobileDropdowns.whyus ? "▲" : "▼"}
-                    </span>
-                  </button>
-
-                  {mobileDropdowns.whyus && (
-                    <div className="pl-3 mt-3 space-y-1">
-                      {[
-                        {
-                          name: "Grand Line Blog",
-                          path: "/blog",
-                          image: "Navbar/blog.png",
-                        },
-                        {
-                          name: "Our Team",
-                          path: "/our-team",
-                          image: "Navbar/group.png",
-                        },
-                        {
-                          name: "Testimonials",
-                          path: "/testimonials",
-                          image: "Navbar/review.png",
-                        },
-                      ].map((link) => (
-                        <Link
-                          key={link.name}
-                          to={link.path}
-                          className="flex justify-between items-center px-3 py-2 text-[#2d1b00] hover:text-[#d2a679] hover:bg-[#faf6f0] rounded-lg transition text-sm tracking-wide"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          <span>{link.name}</span>
-                          <img
-                            src={getImageUrl(link.image)}
-                            className="h-5 w-5 object-cover rounded-sm ml-2 shadow-sm"
-                            alt={link.name}
-                          />
-                        </Link>
-                      ))}
-                    </div>
-                  )}
+                  {[
+                    {
+                      name: "Grand Line Blog",
+                      path: "/blog",
+                      image: "Navbar/blog.svg",
+                    },
+                    {
+                      name: "Our Team",
+                      path: "/our-team",
+                      image: "Navbar/group.svg",
+                    },
+                    {
+                      name: "Testimonials",
+                      path: "/testimonials",
+                      image: "Navbar/review.svg",
+                    },
+                  ].map((link) => (
+                    <Link
+                      key={link.name}
+                      to={link.path}
+                      className="flex justify-between items-center px-3 py-2 rounded-md text-[#2d1b00] hover:text-[#d2a679] hover:bg-[#faf6f0] transition"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <span className="tracking-wide text-sm">{link.name}</span>
+                      <img
+                        src={getImageUrl(link.image)}
+                        className="h-5 w-5 object-cover rounded-sm ml-2 opacity-90"
+                        alt={link.name}
+                      />
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>
