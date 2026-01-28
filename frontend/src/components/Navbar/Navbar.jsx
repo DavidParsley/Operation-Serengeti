@@ -334,8 +334,8 @@ export default function Navbar() {
                       image: "Navbar/group.svg",
                     },
                     {
-                      name: "Testimonials",
-                      path: "/testimonials",
+                      name: "Reviews",
+                      path: "/Reviews",
                       image: "Navbar/review.svg",
                     },
                   ].map((link) => (

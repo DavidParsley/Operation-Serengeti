@@ -134,7 +134,7 @@ export default function DropdownMenu({ menuType, isOpen, isMobile }) {
               {[
                 { name: "Grand Line Blog", path: "/blog", image: "Navbar/blog.svg" },
                 { name: "Our Team", path: "/our-team", image: "Navbar/group.svg" },
-                { name: "Testimonials", path: "/testimonials", image: "Navbar/review.svg" },
+                { name: "Reviews", path: "/reviews", image: "Navbar/review.svg" },
               ].map((link) => (
                 <div
                   key={link.name}
