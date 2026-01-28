@@ -132,8 +132,8 @@ export default function DropdownMenu({ menuType, isOpen, isMobile }) {
           return (
             <div className="space-y-4">
               {[
-                { name: "Grand Line Blog", path: "/blog", image: "Navbar/blog.svg" },
-                { name: "Our Team", path: "/our-team", image: "Navbar/group.svg" },
+                { name: "Blog", path: "/blog", image: "Navbar/blog.svg" },
+                { name: "Team", path: "/our-team", image: "Navbar/group.svg" },
                 { name: "Reviews", path: "/reviews", image: "Navbar/review.svg" },
               ].map((link) => (
                 <div
@@ -176,9 +176,9 @@ export default function DropdownMenu({ menuType, isOpen, isMobile }) {
               className={`absolute left-0 mt-6 w-56 ${panelBase} py-3 px-3 z-50`}
             >
               {[
-                { name: "Grand Line Blog", path: "/blog", image: "Navbar/blog.svg" },
-                { name: "Our Team", path: "/our-team", image: "Navbar/group.svg" },
-                { name: "Testimonials", path: "/testimonials", image: "Navbar/review.svg" },
+                { name: "Blog", path: "/blog", image: "Navbar/blog.svg" },
+                { name: "Team", path: "/our-team", image: "Navbar/group.svg" },
+                { name: "Reviews", path: "/reviews", image: "Navbar/review.svg" },
               ].map((link) => (
                 <Link
                   key={link.name}

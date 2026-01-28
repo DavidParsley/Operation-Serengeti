@@ -10,6 +10,7 @@ const navItems = [
   { name: "Safaris", type: "dropdown" },
   { name: "Why Us", type: "dropdown" },
   { name: "Gallery", to: "/gallery", type: "link" },
+  { name: "About", to: "/About", type: "link" },
 ];
 
 export default function Navbar() {
@@ -324,12 +325,12 @@ export default function Navbar() {
                 <div className="space-y-4">
                   {[
                     {
-                      name: "Grand Line Blog",
+                      name: "Blog",
                       path: "/blog",
                       image: "Navbar/blog.svg",
                     },
                     {
-                      name: "Our Team",
+                      name: "Team",
                       path: "/our-team",
                       image: "Navbar/group.svg",
                     },
